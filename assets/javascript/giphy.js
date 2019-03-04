@@ -1,31 +1,38 @@
-//Getting Elements from HTML
-var animeButton = $(".anime") 
-var gif = $(".gif")
+$(document).ready(function () {
+
+  //Getting Elements from HTML
+  var animeButton = $(".anime")
+  var gif = $(".gif")
 
 
 
-var topics = ["Naruto", "Hunter X Hunter", "My Hero Acadamia", "Sword Art Online", "Attack on Titan", "Tokyo Ghoul", "Fate/Stay Night", "No Game No Life", "Cardcaptor Sakura", "Full Metal Alchemist"]
+  var topics = ["Naruto", "Hunter X Hunter", "My Hero Acadamia", "Sword Art Online", "Attack on Titan", "Tokyo Ghoul", "Fate/Stay Night", "No Game No Life", "Cardcaptor Sakura", "Full Metal Alchemist"]
 
-function displayAnimeGif() {
+  function displayAnimeGif() {
     $("#gif-view").empty()
     var anime = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + anime + "&limit=10&api_key=2bzoaF3rvh4MyuC2guRzuaQwRPP8yLlQ"
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
-        for (var i =0; i < response.data.length; i ++){
-            var gifImg = $("<img>")
-            gifImg.addClass("gif")
-            gifImg.attr("src", response.data[i].images["fixed_height_still"].url)
-            gifImg.attr("data-still", response.data[i].images["fixed_height_still"].url)
-            gifImg.attr("data-animate", response.data[i].images["fixed_height"].url)
-            gifImg.attr("data-motion", "still")
-            $("#gif-view").append(gifImg)
-        }
-    
+    }).then(function (response) {
+      for (var i = 0; i < response.data.length; i++) {
+        var newSpan = $("<span>")
+        var gifImg = $("<img>")
+        gifImg.addClass("gif")
+        gifImg.attr("src", response.data[i].images["fixed_height_still"].url)
+        gifImg.attr("data-still", response.data[i].images["fixed_height_still"].url)
+        gifImg.attr("data-animate", response.data[i].images["fixed_height"].url)
+        gifImg.attr("data-motion", "still")
+        var rating = $("<div>")
+        rating.addClass("rating")
+        rating .text("Rated: " + response.data[i].rating)
+        newSpan.append(gifImg , rating)
+        $("#gif-view").prepend(newSpan)
+      }
+
     });
-    
+
   }
 
 
@@ -41,7 +48,7 @@ function displayAnimeGif() {
     }
   }
 
-  $("#add-anime").on("click", function(event) {
+  $("#add-anime").on("click", function (event) {
     event.preventDefault();
     var anime = $("#anime-input").val().trim();
     topics.push(anime);
@@ -53,13 +60,15 @@ function displayAnimeGif() {
   renderButtons()
 
   function animateGif() {
-      if($(this).attr("data-motion") === "still"){
-        $(this).attr("data-motion", "animate")
-        $(this).attr("src", $(this).attr("data-animate"))
-      }
-      else if ($(this).attr("data-motion") === "animate"){
-        $(this).attr("data-motion", "still")
-        $(this).attr("src", $(this).attr("data-still"))
-      }
+    if ($(this).attr("data-motion") === "still") {
+      $(this).attr("data-motion", "animate")
+      $(this).attr("src", $(this).attr("data-animate"))
+    }
+    else if ($(this).attr("data-motion") === "animate") {
+      $(this).attr("data-motion", "still")
+      $(this).attr("src", $(this).attr("data-still"))
+    }
   }
   $(document).on("click", ".gif", animateGif)
+
+})

@@ -1,3 +1,9 @@
+//Getting Elements from HTML
+var animeButton = $(".anime") 
+var gif = $(".gif")
+
+
+
 var topics = ["Naruto", "Hunter X Hunter", "My Hero Acadamia", "Sword Art Online", "Attack on Titan", "Tokyo Ghoul", "Fate/Stay Night", "No Game No Life", "Cardcaptor Sakura", "Full Metal Alchemist"]
 
 function displayAnimeGif() {
@@ -10,7 +16,11 @@ function displayAnimeGif() {
     }).then(function(response) {
         for (var i =0; i < response.data.length; i ++){
             var gifImg = $("<img>")
-            gifImg.attr("src", response.data[i].images["fixed_height"].url)
+            gifImg.addClass("gif")
+            gifImg.attr("src", response.data[i].images["fixed_height_still"].url)
+            gifImg.attr("data-still", response.data[i].images["fixed_height_still"].url)
+            gifImg.attr("data-animate", response.data[i].images["fixed_height"].url)
+            gifImg.attr("data-motion", "still")
             $("#gif-view").append(gifImg)
         }
     
@@ -20,8 +30,6 @@ function displayAnimeGif() {
 
 
   function renderButtons() {
-
-
     $("#buttons-view").empty();
 
     for (var i = 0; i < topics.length; i++) {
@@ -43,3 +51,15 @@ function displayAnimeGif() {
   $(document).on("click", ".anime", displayAnimeGif)
 
   renderButtons()
+
+  function animateGif() {
+      if($(this).attr("data-motion") === "still"){
+        $(this).attr("data-motion", "animate")
+        $(this).attr("src", $(this).attr("data-animate"))
+      }
+      else if ($(this).attr("data-motion") === "animate"){
+        $(this).attr("data-motion", "still")
+        $(this).attr("src", $(this).attr("data-still"))
+      }
+  }
+  $(document).on("click", ".gif", animateGif)

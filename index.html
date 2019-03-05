@@ -5,6 +5,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
@@ -13,29 +15,25 @@
     <div class="container">
         <form>
             <div class="form-group form-row">
-                <label for="anime-input">Add an Anime</label>
+                <label for="anime-input" class="text">Add an Anime</label>
                 <div class="col-5">
                     <input type="test" class="form-control" id="anime-input" placeholder="Enter an Anime Name">
                 </div>
                 <div class="col-3">
-                    <button id="add-anime" type="submit" class="btn btn-primary" value="Add an Anime">Submit</button>
+                    <button id="add-anime" type="submit" class="btn btn-primary text"
+                        value="Add an Anime">Submit</button>
                 </div>
 
             </div>
 
         </form>
-
-        <!-- <form id="anime-form">
-        <label for="anime-input">Add an Anime</label>
-        <input type="text" id="anime-input"><br>
-
-        Button triggers new movie to be added
-        <input id="add-anime" type="submit" value="Add an Anime">
-    </form> -->
-
         <div id="buttons-view"></div>
 
-        <div id="gif-view"></div>
+        <div class="row">
+            <div id="gif-view" class="col-12">
+
+            </div>
+        </div>
     </div>
 
 

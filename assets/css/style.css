@@ -1,0 +1,16 @@
+body {
+    background-image: url("http://www.wallpapermaiden.com/image/2016/10/12/anime-scenic-classroom-sunshine-building-anime-7450.jpg");
+    /* background-position: center center; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.gif-container{
+    display: inline-block;
+    margin:1%;
+}
+
+.text {
+    font-family: 'Courgette', cursive;
+}

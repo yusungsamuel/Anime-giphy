@@ -17,18 +17,19 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (response) {
       for (var i = 0; i < response.data.length; i++) {
-        var newSpan = $("<span>")
+        var newDiv = $("<div>")
+        newDiv.addClass("gif-container")
         var gifImg = $("<img>")
         gifImg.addClass("gif")
-        gifImg.attr("src", response.data[i].images["fixed_height_still"].url)
-        gifImg.attr("data-still", response.data[i].images["fixed_height_still"].url)
-        gifImg.attr("data-animate", response.data[i].images["fixed_height"].url)
+        gifImg.attr("src", response.data[i].images["fixed_height_small_still"].url)
+        gifImg.attr("data-still", response.data[i].images["fixed_height_small_still"].url)
+        gifImg.attr("data-animate", response.data[i].images["fixed_height_small"].url)
         gifImg.attr("data-motion", "still")
-        var rating = $("<div>")
-        rating.addClass("rating")
+        var rating = $("<p>")
+        rating.addClass("rating text")
         rating .text("Rated: " + response.data[i].rating)
-        newSpan.append(gifImg , rating)
-        $("#gif-view").prepend(newSpan)
+        newDiv.append(gifImg , rating)
+        $("#gif-view").prepend(newDiv)
       }
 
     });
@@ -41,7 +42,7 @@ $(document).ready(function () {
 
     for (var i = 0; i < topics.length; i++) {
       var button = $("<button>");
-      button.addClass("anime");
+      button.addClass("anime text");
       button.attr("data-name", topics[i]);
       button.text(topics[i]);
       $("#buttons-view").append(button);

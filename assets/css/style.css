@@ -1,9 +1,28 @@
-body {
+.section2 {
+    position:relative;
     background-image: url("http://www.wallpapermaiden.com/image/2016/10/12/anime-scenic-classroom-sunshine-building-anime-7450.jpg");
-    /* background-position: center center; */
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+.section1 {
+    position:relative;
+    background-image: url("https://openclipart.org/image/2400px/svg_to_png/49363/blackboard.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+.gif {
+    border-image-source: url("https://myrealdomain.com/images250_/polariod-png.png");
+    border-image-repeat: round;
+    border-image-slice: 60;
+    border-image-width: 10px;
+    border-width: 5px;
+    border-style: solid;
 }
 
 .gif-container{
@@ -12,5 +31,19 @@ body {
 }
 
 .text {
-    font-family: 'Courgette', cursive;
+    font-family: 'Walter Turncoat', cursive;
+    color:white;
+    font-size:25px;
+}
+
+.rating {
+    font-family: 'Walter Turncoat', cursive;
+    color:white;
+    font-size:20px;
+}
+
+#rolling_camera {
+    position: absolute;
+    bottom:0;
+    height: 50%;
 }

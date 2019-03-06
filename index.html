@@ -5,36 +5,40 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Walter+Turncoat" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <div class="container">
-        <form>
-            <div class="form-group form-row">
-                <label for="anime-input" class="text">Add an Anime</label>
-                <div class="col-5">
-                    <input type="test" class="form-control" id="anime-input" placeholder="Enter an Anime Name">
+    <section class="section1">
+        <div class="container">
+            <form>
+                <div class="form-group form-row">
+                    <label for="anime-input" class="text">Add an Anime</label>
+                    <div class="col-5">
+                        <input type="test" class="form-control" id="anime-input" placeholder="Enter an Anime Name">
+                    </div>
+                    <div class="col-3">
+                        <button id="add-anime" type="submit" class="btn text"
+                            value="Add an Anime">Submit</button>
+                    </div>
+
                 </div>
-                <div class="col-3">
-                    <button id="add-anime" type="submit" class="btn btn-primary text"
-                        value="Add an Anime">Submit</button>
+
+            </form>
+            
+
+            <div class="row">
+                <div id="buttons-view" class="col-3"></div>
+                <div id="gif-view" class="col-9">
                 </div>
-
-            </div>
-
-        </form>
-        <div id="buttons-view"></div>
-
-        <div class="row">
-            <div id="gif-view" class="col-12">
-
             </div>
         </div>
-    </div>
+    </section>
+    <section class="section2"> 
+    </section>
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

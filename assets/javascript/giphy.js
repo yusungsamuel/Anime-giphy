@@ -26,7 +26,7 @@ $(document).ready(function () {
         gifImg.attr("data-animate", response.data[i].images["fixed_height_small"].url)
         gifImg.attr("data-motion", "still")
         var rating = $("<p>")
-        rating.addClass("rating text")
+        rating.addClass("rating")
         rating .text("Rated: " + response.data[i].rating)
         newDiv.append(gifImg , rating)
         $("#gif-view").prepend(newDiv)
@@ -41,7 +41,7 @@ $(document).ready(function () {
     $("#buttons-view").empty();
 
     for (var i = 0; i < topics.length; i++) {
-      var button = $("<button>");
+      var button = $("<div>");
       button.addClass("anime text");
       button.attr("data-name", topics[i]);
       button.text(topics[i]);

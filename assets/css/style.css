@@ -1,11 +1,13 @@
-.section1 {
+body{
     position:relative;
     background-image: url("https://openclipart.org/image/2400px/svg_to_png/49363/blackboard.png");
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     height: 100vh;
 }
+
+
 
 .anime:hover {
     cursor: pointer

@@ -18,7 +18,7 @@ $(document).ready(function () {
     }).then(function (response) {
       for (var i = 0; i < response.data.length; i++) {
         var newDiv = $("<div>")
-        newDiv.addClass("gif-container")
+        newDiv.addClass("gif-container animated swing")
         var gifImg = $("<img>")
         gifImg.addClass("gif")
         gifImg.attr("src", response.data[i].images["fixed_height_small_still"].url)
@@ -39,10 +39,9 @@ $(document).ready(function () {
 
   function renderButtons() {
     $("#buttons-view").empty();
-
     for (var i = 0; i < topics.length; i++) {
       var button = $("<div>");
-      button.addClass("anime text");
+      button.addClass("anime text animated flash");
       button.attr("data-name", topics[i]);
       button.text(topics[i]);
       $("#buttons-view").append(button);
